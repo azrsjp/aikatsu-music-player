@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CalendarGirl like Aikatsu! DemoPlayer</title>
+  <style type="text/css">
+    @keyframes spin {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+    @keyframes needle-anim {
+      0% {transform: rotate(25deg);}
+      100% {transform: rotate(70deg);}
+    }
+    #table {
+      width: 1280px;
+      height: 720px;
+      background: url(./wood.jpg) repeat;
+      overflow: hidden;
+      position: relative;
+      border: 8px solid #a07f6b;
+      margin: 10px auto;
+    }
+    #disk {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      clip-path: circle(94.8% at 13% 0);
+    }
+    #disk-border {
+      width: 1280px;
+      height: 720px;
+      position: absolute;
+      background-color: #D6C793;
+      clip-path: circle(98% at 13% 0);
+    }
+    #disk-border2 {
+      width: 1280px;
+      height: 720px;
+      position: absolute;
+      background-color: #a07f6b;
+      clip-path: circle(95.5% at 13% 0);
+    }
+    #disk-circle {
+      display: inline-block;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: #D6C793;
+      border: 4px solid #a07f6b;
+      position: absolute;
+      font-size: 3.5em;
+      color: #a07f6b;
+      top: -300px;
+      left: -223px;
+      padding: 10px;
+      animation: spin 25s linear infinite;
+    }
+    #needle {
+      position: absolute;
+      top: -150px;
+      right: 0;
+      animation: needle-anim 1000s linear forwards;
+      transform-origin: top left;
+    }
+    #knob {
+      position: absolute;
+      bottom: 40px;
+      right: 100px;
+    }
+  </style>
+  <script src="circletype.min.js"></script>
+  <script src="youtubemixer-min.js"></script>
+  <script>
+
+    function main() {
+      youtubeMixer.playlistPush("Pzcy_683rH4",{start:51, end:74}); // 51
+      youtubeMixer.playlistPush("6eb-gzEejAg",{start:74, end:93}); // 74
+      youtubeMixer.playlistPush("EbxoEIh3aHc",{start:72, end:102}); // 72
+      youtubeMixer.playlistPush("TLYysjOtQ7E",{start:70, end:90}); // 70
+      youtubeMixer.playlistPush("kEqqu5Vkl40",{start:79, end:108}); // 79
+      youtubeMixer.playlistPush("gjazlka1SrE",{start:65, end:89}); // 65
+      youtubeMixer.playlistPush("w4ahAWyfEDM",{start:100, end:107}); // 76
+      youtubeMixer.playlistPush("CrA5IJeRw1Q",{start:80, end:98}); // 54
+      youtubeMixer.playlistPush("QPkgdZvLhfA",{start:24, end:32}); // 8
+      youtubeMixer.playlistPush("lXtv-OGDQds",{start:67, end:93}); // 67
+      youtubeMixer.playlistPush("XENZsmSMzYY",{start:71, end:107}); // 71
+      youtubeMixer.playlistPush("Knl4STE8es0",{start:79, end:118}); // 79
+      youtubeMixer.playlistPush("HnV6KQPbwOM",{start:3, end:118}); // 3
+      youtubeMixer.playlistPush("o4T2P6gZfZc",{start:2, end:118}); // 2
+      youtubeMixer.init({
+        audio:true,
+        useProgressBar:false,
+        quality:"medium",
+        fullpage: false,
+        elementID: "disk"
+      });
+    }
+    </script>
+</head>
+<body onLoad="main();">
+  <div id="table">
+      <div id="disk-border"></div>
+      <div id="disk-border2"></div>
+      <div id="disk"></div>
+      <div id="disk-circle">-----------Calendar Girl-------------------Calendar Girl-----------</div>
+      <img src="./needle.png" alt="" id="needle">
+      <img src="./knob.png" alt="" id="knob">
+  </div>
+  <script>
+        const circleType = new CircleType(document.getElementById('disk-circle'));
+        circleType.radius(300);
+  </script>
+</body>
+</html>
