@@ -1,3 +1,25 @@
+/*The MIT License (MIT)
+
+Copyright (c) 2015, John Dimitriadis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
 var MutekiTimer=(function(){var MutekiTimer=function(){initialize.apply(this,arguments)},$this=MutekiTimer.prototype;var TIMER_PATH=(function(){var BlobBuilder,URL,builder;BlobBuilder=self.WebKitBlobBuilder||self.MozBlobBuilder;URL=self.URL||self.webkitURL;if(BlobBuilder&&URL){builder=new BlobBuilder();builder.append("var timerId = 0;");builder.append("this.onmessage = function(e) {");builder.append("  if (timerId !== 0) {");builder.append("    clearInterval(timerId);");builder.append("    timerId = 0;");builder.append("  }");builder.append("  if (e.data > 0) {");builder.append("    timerId = setInterval(function() {");builder.append("        postMessage(null);");builder.append("    }, e.data);");builder.append("  }");builder.append("};");return URL.createObjectURL(builder.getBlob())}
 return null}());var initialize=function(){if(TIMER_PATH){this._timer=new Worker(TIMER_PATH);this.isMuteki=!0}else{this._timer=null;this.isMuteki=!1}
 this._timerId=0};$this.setInterval=function(func,interval){if(this._timer!==null){this._timer.onmessage=func;this._timer.postMessage(interval)}else{if(this._timerId!==0){clearInterval(this._timerId)}
