@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aikatsu Advent CalendarGirl 2018</title>
+  <style type="text/css">
+    @keyframes spin {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+    @keyframes needle-anim {
+      0% {transform: rotate(25deg);}
+      100% {transform: rotate(70deg);}
+    }
+    #table {
+      width: 1280px;
+      height: 720px;
+      background: url(./wood.jpg) repeat;
+      overflow: hidden;
+      position: relative;
+      border: 8px solid #a07f6b;
+      margin: 10px auto;
+    }
+    #disk {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      clip-path: circle(1100px at 0 0);
+    }
+    #disk-bg {
+      width: 1280px;
+      height: 720px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      top: 0px;
+      left: 0px;
+      clip-path: circle(1100px at 0 0);
+    }
+    #disk-1 {
+      display: inline-block;
+      width: 1600px;
+      height: 1600px;
+      border-radius: 50%;
+      position: absolute;
+      font-size: 3.5em;
+      top: -800px;
+      left: -800px;
+      padding: 0px;
+      display:flex;
+      justify-content: center;
+      align-items: bottom;
+    }
+    #disk-1-inner {
+      color: #fff;
+      align-self: flex-end;
+      display: block;
+      font-size: 80px;
+      line-height: 80px;
+    }
+    #disk-2 {
+      display: inline-block;
+      width: 1600px;
+      height: 1600px;
+      border-radius: 50%;
+      position: absolute;
+      font-size: 3.5em;
+      top: -800px;
+      left: -800px;
+      padding: 0px;
+      display:flex;
+      justify-content: center;
+      align-items: bottom;
+    }
+    #disk-2-inner {
+      color: #fff;
+      align-self: flex-end;
+      display: block;
+      font-size: 80px;
+      line-height: 80px;
+    }
+    #disk-border {
+      width: 1280px;
+      height: 720px;
+      position: absolute;
+      background-color: #D6C793;
+      clip-path: circle(1135px at 0 0);
+    }
+    #disk-border2 {
+      width: 1280px;
+      height: 720px;
+      position: absolute;
+      background-color: #a07f6b;
+      clip-path: circle(1110px at 0 0);
+    }
+    #disk-circle {
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: #D6C793;
+      border: 4px solid #a07f6b;
+      position: absolute;
+      font-size: 3.5em;
+      color: #a07f6b;
+      top: -350px;
+      left: -350px;
+      padding: 0px;
+      display:flex;
+      justify-content: center;
+      align-items: bottom;
+      animation: spin 6.5s linear infinite;
+    }
+    #disk-circle-inner {
+      /* margin-bottom: px; */
+      align-self: flex-end;
+      display: block;
+      font-size: 80px;
+      line-height: 80px;
+    }
+    #needle {
+      position: absolute;
+      top: -150px;
+      right: 0;
+      animation: needle-anim 1000s linear forwards;
+      transform-origin: top left;
+    }
+    #knob {
+      position: absolute;
+      bottom: 40px;
+      right: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="table">
+      <div id="disk-border"></div>
+      <div id="disk-border2"></div>
+      <div id="disk"></div>
+      <div id="disk-bg"></div>
+      <div id="disk-1"><div id="disk-1-inner"></div></div>
+      <div id="disk-2"><div id="disk-2-inner"></div></div>
+      <div id="disk-circle"><div id="disk-circle-inner">Aikatsu Advent Calendar 2018***</div></div>
+      <!-- <img src="./needle.png" alt="" id="needle"> -->
+      <img src="./knob.png" alt="" id="knob">
+  </div>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  <script src="circletype.min.js"></script>
+  <script src="youtubeAPI.js"></script>
+  <script>
+        new CircleType(document.getElementById('disk-circle-inner')).radius(350).dir(-1);
+        new CircleType(document.getElementById('disk-1-inner'))
+        .dir(-1)
+        .radius(800);
+        new CircleType(document.getElementById('disk-2-inner'))
+        .dir(-1)
+        .radius(800);
+  </script>
+</body>
+</html>
